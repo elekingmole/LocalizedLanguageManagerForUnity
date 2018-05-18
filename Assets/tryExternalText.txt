@@ -1,0 +1,4 @@
+dataPath:E:/data/readwriteTest/Assets
+pPath:C:/Users/elekmole/AppData/LocalLow/DefaultCompany/readwriteTestC#あ
+てすとてすと
+
