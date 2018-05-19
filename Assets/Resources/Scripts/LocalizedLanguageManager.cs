@@ -235,6 +235,7 @@ public class LocalizedLanguageManager : MonoBehaviour
         }
     }
 
+
     public IEnumerator LoadTextData(string targetFilename)
     {
         string path = "";
@@ -247,9 +248,9 @@ public class LocalizedLanguageManager : MonoBehaviour
 #elif UNITY_ANDROID
         switch(pathMode){
             case PathMode.streamingAsset:
-                if(!File.Exists(Application.dataPath + "!/assets" + "/" + targetFilename)){
-                   targetFilename = defaultLanguage + fileExtension;
-                }
+                //if(!File.Exists(Application.dataPath + "!/assets" + "/" + targetFilename)){
+                //   targetFilename = defaultLanguage + fileExtension;
+                //}
                 path = "jar:file://" + Application.dataPath + "!/assets" + "/" + targetFilename;        
                 break;
             case PathMode.persistentData:

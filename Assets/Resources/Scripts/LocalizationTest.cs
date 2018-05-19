@@ -17,7 +17,7 @@ public class LocalizationTest : MonoBehaviour
         rectStyle.fontSize = 50;
         rectStyle.alignment = TextAnchor.MiddleLeft;
         LLM = GetComponentInParent<LocalizedLanguageManager>();
-        LLM.SetPathMode(LocalizedLanguageManager.PathMode.persistentData).SetLanguage();
+        LLM.SetPathMode(LocalizedLanguageManager.PathMode.streamingAsset).SetLanguage();
     }
 
     void Update()
