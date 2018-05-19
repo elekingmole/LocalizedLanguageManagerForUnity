@@ -246,12 +246,18 @@ public class LocalizedLanguageManager : MonoBehaviour
 		textReader = new StreamReader(file);
 		yield return new WaitForSeconds(0f);
 #elif UNITY_ANDROID
+        WWW www = null;
+
         switch(pathMode){
             case PathMode.streamingAsset:
-                //if(!File.Exists(Application.dataPath + "!/assets" + "/" + targetFilename)){
-                //   targetFilename = defaultLanguage + fileExtension;
-                //}
-                path = "jar:file://" + Application.dataPath + "!/assets" + "/" + targetFilename;        
+                path = "jar:file://" + Application.dataPath + "!/assets" + "/" + targetFilename; 
+        
+                www = new WWW(path);
+                yield return www;
+                if(www.text.Length == 0){
+                    path = "jar:file://" + Application.dataPath + "!/assets" + "/" + defaultLanguage + fileExtension;
+                }
+
                 break;
             case PathMode.persistentData:
                 if(!File.Exists(Application.persistentDataPath + "/" +targetFilename)){
@@ -268,7 +274,7 @@ public class LocalizedLanguageManager : MonoBehaviour
                 break;
         }
 
-		WWW www = new WWW(path);
+		www = new WWW(path);
 		yield return www;
 		textReader = new StringReader(www.text);
 #endif
