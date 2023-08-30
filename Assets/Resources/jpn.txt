@@ -1,0 +1,3 @@
+title=日本語タイトル fromResource
+start=ゲームスタート
+splitTest=分割=文字列=

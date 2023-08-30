@@ -9,7 +9,7 @@ public class LocalizationTest : MonoBehaviour
 {
     public static string resultTxt = "";
     private GUIStyle rectStyle = new GUIStyle();
-    LocalizedLanguageManager LLM = null;
+    public LocalizedLanguageManager LLM = null;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class LocalizationTest : MonoBehaviour
         rectStyle.fontSize = 50;
         rectStyle.alignment = TextAnchor.MiddleLeft;
         LLM = GetComponentInParent<LocalizedLanguageManager>();
-        LLM.SetPathMode(LocalizedLanguageManager.PathMode.streamingAsset).SetLanguage();
+        LLM.SetPathMode(LocalizedLanguageManager.PathMode.streamingAsset).SetReadMode(true)./* SetForcedLanguage("unk").*/SetLanguage();
     }
 
     void Update()
