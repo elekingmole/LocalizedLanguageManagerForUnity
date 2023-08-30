@@ -16,7 +16,7 @@ public class LocalizedLanguageManager : MonoBehaviour
     private string forcedLanguage = "";
     private string fileExtension = ".llf";
     private string manuallyInputPath = "";
-    private PathMode pathMode = PathMode.streamingAsset;
+    private PathMode pathMode = PathMode.fromResources;
 
     public LocalizedLanguageManager SetFileExtension(string extension)
     {
@@ -244,7 +244,6 @@ public class LocalizedLanguageManager : MonoBehaviour
 
     public IEnumerator LoadTextDataWithCoroutine(string targetFilename)
     {
-        Debug.Log("Coroutine");
         string path = "";
         string textBuffer = "";
 #if UNITY_EDITOR
